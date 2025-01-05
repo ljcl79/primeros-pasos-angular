@@ -1,7 +1,7 @@
-<div class="card">
+<div class="card" [ngClass]="getMascotasClass()" appHighlight="rgba(59, 130, 246, 0.1)">
     <img [src]="mascota.imagen" class="card-img-top" alt="{{mascota.nombre}}">
     <div class="card-body">
-        <h5 class="card-title">{{mascota.nombre}}</h5>
+        <h5 class="card-title" [ngStyle]="getMascotasStyles()">{{mascota.nombre}}</h5>
         <p class="card-text">{{mascota.descripcion}}</p>
         <p class="card-text"><small class="text-muted">{{mascota.tipo}} - {{mascota.edad}} años</small></p>
     </div>

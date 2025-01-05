@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Mascota } from '../interfaces/mascota';
-import { catchError, map, Observable, throwError } from 'rxjs';
+import { catchError, delay, map, Observable, throwError } from 'rxjs';
 import { ApiResponse } from '../interfaces/apiResponse';
 
 
@@ -17,6 +17,7 @@ export class MascotaService {
     return this.http.get(this.apiUrl)
       .pipe(
         map((data) => ({ data } as ApiResponse<Mascota[]>)),
+        delay(2000),
         catchError(this.handleError)
       );
   }

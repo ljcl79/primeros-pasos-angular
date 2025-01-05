@@ -10,9 +10,18 @@
 <app-nav></app-nav>
 <div class="container">
   <div class="row">
-    <div class="col-md-4" *ngFor="let mascota of mascotas">
+    @if(loading) {
+    <div class="d-flex justify-content-center">
+      <img src="../assets/loading.svg" />
+    </div>
+    }
+    @else{
+    @for(mascota of mascotas; track mascota.id) {
+    <div class="col-md-4">
       <app-mascota [mascota]="mascota"></app-mascota>
     </div>
+    }
+    }
   </div>
 </div>
 <app-footer></app-footer>
